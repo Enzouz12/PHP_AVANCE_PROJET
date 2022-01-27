@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un film{% endblock %}
+
+{% block body %}
+    <h1>Modifier un film</h1>
+
+    {{ include('movie/_movie.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-secondary" href="{{ path('movie_index') }}">Retour</a>
+
+    {{ include('movie/_delete_moviex.html.twig') }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Bon dieu !</strong> Le code admin est faux !
+        </div>
+    {% endif %}
+    <h1>Movie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ movie.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ movie.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ movie.description }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ movie.score }}</td>
+            </tr>
+            <tr>
+                <th>VotersNumber</th>
+                <td>{{ movie.votersNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('movie_index') }}">Retour</a>
+
+    <a  class="btn btn-info" href="{{ path('movie_edit', {'id': movie.id}) }}">Modifier</a>
+
+    {{ include('movie/_delete_movie.html.twig') }}
+{% endblock %}
